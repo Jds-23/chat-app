@@ -66,7 +66,7 @@ const OpenConversation=({id,username,selectedConversation})=>{
                     <div className="w-100 d-flex justify-content-center align-items-center" style={{minHeight: "100%"}}>
                         <Spinner animation="grow" variant="primary"/></div>
                     :
-                    <div className=" d-flex flex-column align-items-start justify-content-end px-3 ">
+                    <div className=" d-flex flex-column align-items-start justify-content-end px-3 mt-5">
                         {messages.map((message, index) => {
                             const lastMessage = messages.length - 1 === index;
                             return (

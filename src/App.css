@@ -5,3 +5,12 @@
     justify-content: center;
     align-items: center;
 }
+.header-back{
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    padding: 10px;
+    background-color: white;
+    width: 100%;
+    border-bottom: 1px solid lightgrey;
+}

@@ -11,6 +11,7 @@ export const useConversations=()=>{
 export const ConversationsProvider=({id,children})=>{
     const [conversations,setConversations]=useState([]);
     const [selectedConversationIndex,setSelectedConversationIndex]=useState();
+    const [loading,setLoading]=useState(true);
 
     useEffect(()=>{
         let unsubscribe;
@@ -20,6 +21,7 @@ export const ConversationsProvider=({id,children})=>{
                 .collection('conversations')
                 .onSnapshot(snapshot => {
                     setConversations(snapshot.docs.map(doc => {
+                        setLoading(false);
                         return {
                             id: doc.id,
                             name: doc.data().name,
@@ -53,6 +55,7 @@ export const ConversationsProvider=({id,children})=>{
 
     const value={
         conversations,
+        loading,
         selectedConversation: selectedConversationIndex,
         selectConversation: setSelectedConversationIndex,
         createConversation
